@@ -397,17 +397,22 @@ function imagenCarrusel(proyectos) {
 //! Side Panel
 
 abrirSidePanel = () => {
-  if (window.innerWidth > 850) {
+  document.getElementById("sidePanel").classList.remove("--fade-out");
+  document.getElementById("sidePanel").classList.add("--fade-in");
+  if (window.innerWidth > 900) {
+    document.getElementById("sidePanel").style.display = "flex";
     document.getElementById("sidePanel").style.left = "75%";
     document.getElementById("sidePanel").style.boxShadow =
       "-7px -1px 32px 7px rgba(24, 13, 13, 0.75)";
     console.log("abrir");
-  } else if (window.innerWidth <= 850 && window.innerWidth > 450) {
-    document.getElementById("sidePanel").style.left = "50%";
+  } else if (window.innerWidth <= 850 && window.innerWidth > 640) {
+    document.getElementById("sidePanel").style.display = "flex";
+    document.getElementById("sidePanel").style.left = "25%";
     document.getElementById("sidePanel").style.boxShadow =
       "-7px -1px 32px 7px rgba(24, 13, 13, 0.75)";
     console.log("abrir");
   } else {
+    document.getElementById("sidePanel").style.display = "flex";
     document.getElementById("sidePanel").style.width = "100%";
     document.getElementById("sidePanel").style.boxShadow =
       "-7px -1px 32px 7px rgba(24, 13, 13, 0.75)";
@@ -417,6 +422,9 @@ abrirSidePanel = () => {
 };
 
 cerrarSidePanel = () => {
+  document.getElementById("sidePanel").classList.remove("--fade-in");
+  document.getElementById("sidePanel").classList.add("--fade-out");
+  document.getElementById("sidePanel").style.display = "none";
   document.getElementById("sidePanel").style.left = "100%";
   document.getElementById("sidePanel").style.boxShadow = "";
   console.log("cerrar");

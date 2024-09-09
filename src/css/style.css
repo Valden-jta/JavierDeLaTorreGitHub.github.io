@@ -499,7 +499,6 @@ h6 {
   color: gray;
 }
 
-
 .copyright__item:first-of-type::after {
   content: "";
   display: inline-block;
@@ -600,11 +599,11 @@ h6 {
 }
 
 .about__picture-cta {
-  color:var(--highlight);
+  color: var(--highlight);
   position: absolute;
-  left:63%;
+  left: 63%;
   top: 60%;
-  animation: pulso 0.5s infinite both; 
+  animation: pulso 0.5s infinite both;
 }
 
 /* contenido */
@@ -1307,13 +1306,12 @@ ul.card__icon-container {
   z-index: 100;
   top: 0;
   left: 100%;
-  /* box-shadow: -7px -1px 32px 7px rgba(24, 13, 13, 0.75); */
   background-color: var(--bg-secondary);
   overflow: hidden;
   transition: 0.5s;
   padding: 13vh 0;
   transition: 0.5s ease-out;
-  display: flex;
+  display: none;
 }
 
 .boton--cerrar {
@@ -1671,6 +1669,39 @@ textarea.form__input {
   }
 }
 
+/*? ------ animaciones contacto ------ */
+/*? ---------------------------------- */
+
+.--fade-in {
+  animation: fade-in 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+.--fade-out {
+  animation: fade-out-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+}
+
 /*? ------ animaciones footer ------ */
 /*? ---------------------------------- */
 
@@ -1697,12 +1728,14 @@ textarea.form__input {
 
 /*! Tablet //////////////////////////// */
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
   /*? -------------  Menú ------------- */
 
   .nav {
+    max-width: 100vw;
     flex-wrap: wrap;
     box-shadow: 32px 32px 51px #1f1e26, -32px -32px 51px #535064;
+    max-width: 100%;
   }
   .nav__brand-logo {
     width: 50px;
@@ -1747,6 +1780,9 @@ textarea.form__input {
   /*? -------------  Hero ------------- */
 
   .hero__container {
+    max-width: 100vw;
+    margin: 1rem auto;
+    padding: 0.5rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1767,26 +1803,30 @@ textarea.form__input {
   /*? -------------  Sobre mí ------------- */
 
   #sobreMi {
+    max-width: 100vw;
     padding: 0 2rem;
+    z-index: 9;
   }
 
   .about__picture-cta {
-    left:60%;
-    top:55%;
+    left: 60%;
+    top: 55%;
   }
 
   .timeLine__wrapper {
-    left: 3%;
+    left: 5%;
   }
 
   .acordeon__wrapper {
-    right: 5%;
+    right: 6%;
   }
 
   /*? -------------  Proyectos ------------- */
 
   #proyectos {
+    max-width: 100vw;
     padding: 3rem 1rem;
+    z-index: 99;
   }
 
   .seleccion__wrapper {
@@ -1799,6 +1839,12 @@ textarea.form__input {
 
   /*? -------------  contacto ------------- */
   /* desplazamiento de side-panel controlado en main.js */
+  #contacto {
+    max-width: 100vw;
+  }
+  .side-panel {
+    width: 75vw;
+  }
 
   /*? -------------  Footer ------------- */
   .footer {
@@ -1833,10 +1879,15 @@ textarea.form__input {
 
 /*! MÓVIL //////////////////////////// */
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 640px) {
+  html {
+    overflow-x: hidden;
+  }
   /*? -------------  Menú ------------- */
 
-  /* listo con el de tablet */
+  .nav {
+    max-width: 100vw;
+  }
 
   /*? -------------  Hero ------------- */
 
@@ -1844,16 +1895,18 @@ textarea.form__input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 100vw;
   }
 
   .hero__column {
-    width: 300px;
+    width: 100vw;
   }
 
   /*? -------------  Sobre mí ------------- */
 
   #sobreMi {
-    height: 1100px;
+    height: 1050px;
+    max-width: 100vw;
   }
 
   #sobreMi .wrapper {
@@ -1863,10 +1916,9 @@ textarea.form__input {
   }
 
   .about__picture-cta {
-    left:55%;
-    top:50%;
+    left: 55%;
+    top: 50%;
   }
-
 
   .timeLine__wrapper {
     left: 0%;
@@ -1878,7 +1930,7 @@ textarea.form__input {
   }
 
   .timeLine__child {
-    width: 270px;
+    width: 265px;
   }
 
   .timeLine__content {
@@ -1899,13 +1951,19 @@ textarea.form__input {
     right: 0;
   }
   /*? -------------  Proyectos ------------- */
-  /* listo con el de tablet */
+  #proyectos {
+    max-width: 100vw;
+  }
   .seleccion__wrapper {
     display: flex;
     flex-direction: column;
   }
 
   /*? -------------  contacto ------------- */
+
+  #contacto {
+    max-width: 100vw;
+  }
   /* desplazamiento de side-panel controlado en main.js */
   .datos__contacto-elemento {
     font-size: 3rem;
@@ -1916,10 +1974,14 @@ textarea.form__input {
   }
 
   /*? -------------  Footer ------------- */
+  footer {
+    max-width: 100vw;
+  }
+
   .footer__column:nth-child(odd) {
     font-size: 40px;
   }
-  .footer__column:nth-child(odd) i{
+  .footer__column:nth-child(odd) i {
     font-size: 70%;
   }
   .copyright {
@@ -1940,13 +2002,12 @@ textarea.form__input {
     white-space: nowrap;
   }
 
-  .copyright__item:nth-of-type(2)::after{
-    display:none;
+  .copyright__item:nth-of-type(2)::after {
+    display: none;
   }
   .copyright__item:last-of-type {
     width: 50px;
     height: 50px;
     justify-self: center;
   }
-
 }

@@ -448,16 +448,7 @@ imagenCarrusel(proyectos);
 
 //* lISTENERS --------------------------------------------------------------
 
-// document
-//   .getElementById("desplegarInfo")
-//   .addEventListener("click", desplegarDiv);
 
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Preparado para renderizar cards");
-  document.getElementById("proyectos").addEventListener("click", function () {
-    filtrarProyectos(proyectos);
-  });
-});
 
 //  timeline
 timeLineWrapper.addEventListener(
@@ -469,12 +460,12 @@ timeLineWrapper.addEventListener(
   { passive: false }
 );
 
-timeLineWrapper.addEventListener(
-  "touchmove",
-  (event) => {
-    const touch = event.touches[0];
-    mostrarSiguienteElemento(touch.clientY);
-    bloquearScroll(event);
-  },
-  { passive: false }
-);
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Preparado para renderizar cards");
+  document.getElementById("proyectos").addEventListener("click", function () {
+    filtrarProyectos(proyectos);
+  });
+});
+
+
+

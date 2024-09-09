@@ -181,7 +181,7 @@ let timeLineWrapper = document.querySelector(".timeLine__wrapper");
 let timeLineIcons = document.querySelectorAll(".timeLine__icons");
 let indiceActual = 0;
 // Función para mostrar el siguiente elemento
-function mostrarSiguienteElementoPC(deltaY) {
+function mostrarSiguienteElemento(deltaY) {
   // Si el desplazamiento es hacia abajo y no estamos en el último elemento
   if (deltaY > 0 && indiceActual < timeLineItems.length - 1) {
     timeLineIcons[1].classList.add("timeLine_vibrar");
@@ -213,7 +213,6 @@ function mostrarSiguienteElementoPC(deltaY) {
 function bloquearScroll(event) {
   event.preventDefault();
 }
-
 
 //! Acordeon
 // Variables
@@ -448,8 +447,6 @@ imagenCarrusel(proyectos);
 
 //* lISTENERS --------------------------------------------------------------
 
-
-
 //  timeline
 timeLineWrapper.addEventListener(
   "wheel",
@@ -466,6 +463,3 @@ document.addEventListener("DOMContentLoaded", function () {
     filtrarProyectos(proyectos);
   });
 });
-
-
-

@@ -181,7 +181,7 @@ let timeLineWrapper = document.querySelector(".timeLine__wrapper");
 let timeLineIcons = document.querySelectorAll(".timeLine__icons");
 let indiceActual = 0;
 // Función para mostrar el siguiente elemento
-function mostrarSiguienteElemento(deltaY) {
+function mostrarSiguienteElementoPC(deltaY) {
   // Si el desplazamiento es hacia abajo y no estamos en el último elemento
   if (deltaY > 0 && indiceActual < timeLineItems.length - 1) {
     timeLineIcons[1].classList.add("timeLine_vibrar");
@@ -213,6 +213,7 @@ function mostrarSiguienteElemento(deltaY) {
 function bloquearScroll(event) {
   event.preventDefault();
 }
+
 
 //! Acordeon
 // Variables
@@ -463,6 +464,16 @@ timeLineWrapper.addEventListener(
   "wheel",
   (event) => {
     mostrarSiguienteElemento(event.deltaY);
+    bloquearScroll(event);
+  },
+  { passive: false }
+);
+
+timeLineWrapper.addEventListener(
+  "touchmove",
+  (event) => {
+    const touch = event.touches[0];
+    mostrarSiguienteElemento(touch.clientY);
     bloquearScroll(event);
   },
   { passive: false }

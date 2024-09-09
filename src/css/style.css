@@ -1973,6 +1973,10 @@ textarea.form__input {
     font-size: 2rem;
   }
 
+  .side-panel {
+    overflow-y: auto;
+  }
+
   /*? -------------  Footer ------------- */
   footer {
     max-width: 100vw;

@@ -397,8 +397,8 @@ function imagenCarrusel(proyectos) {
 //! Side Panel
 
 abrirSidePanel = () => {
-  document.getElementById("sidePanel").classList.remove("--fade-out");
-  document.getElementById("sidePanel").classList.add("--fade-in");
+  document.getElementById("sidePanel").classList.remove('--fade-out');
+  document.getElementById("sidePanel").classList.add('--fade-in');
   if (window.innerWidth > 900) {
     document.getElementById("sidePanel").style.display = "flex";
     document.getElementById("sidePanel").style.left = "75%";
@@ -406,6 +406,7 @@ abrirSidePanel = () => {
       "-7px -1px 32px 7px rgba(24, 13, 13, 0.75)";
     console.log("abrir");
   } else if (window.innerWidth <= 850 && window.innerWidth > 640) {
+  
     document.getElementById("sidePanel").style.display = "flex";
     document.getElementById("sidePanel").style.left = "25%";
     document.getElementById("sidePanel").style.boxShadow =
@@ -422,8 +423,8 @@ abrirSidePanel = () => {
 };
 
 cerrarSidePanel = () => {
-  document.getElementById("sidePanel").classList.remove("--fade-in");
-  document.getElementById("sidePanel").classList.add("--fade-out");
+  document.getElementById("sidePanel").classList.remove('--fade-in');
+  document.getElementById("sidePanel").classList.add('--fade-out');
   document.getElementById("sidePanel").style.display = "none";
   document.getElementById("sidePanel").style.left = "100%";
   document.getElementById("sidePanel").style.boxShadow = "";
@@ -447,6 +448,17 @@ imagenCarrusel(proyectos);
 
 //* lISTENERS --------------------------------------------------------------
 
+// document
+//   .getElementById("desplegarInfo")
+//   .addEventListener("click", desplegarDiv);
+
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Preparado para renderizar cards");
+  document.getElementById("proyectos").addEventListener("click", function () {
+    filtrarProyectos(proyectos);
+  });
+});
+
 //  timeline
 timeLineWrapper.addEventListener(
   "wheel",
@@ -456,10 +468,3 @@ timeLineWrapper.addEventListener(
   },
   { passive: false }
 );
-
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Preparado para renderizar cards");
-  document.getElementById("proyectos").addEventListener("click", function () {
-    filtrarProyectos(proyectos);
-  });
-});
